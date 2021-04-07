@@ -315,7 +315,7 @@ var lens = (function() {
   return {
     prepLens: prepLens,
     noOfLegs: noOfLegs,
-    updateTouch: updateTouch,
+    // updateTouch: updateTouch,
     desiredRadius: desiredRadius,
     scaleToFillImage: scaleToFillImage,
     drawCircle: drawCircle,
