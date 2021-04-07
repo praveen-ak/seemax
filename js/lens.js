@@ -252,9 +252,9 @@ var lens = (function() {
     }
   }
 
-  function cancelPostplaceAnim() {
-    cancelAnimationFrame(postplaceId);
-  }
+  // function cancelPostplaceAnim() {
+  //   cancelAnimationFrame(postplaceId);
+  // }
 
   function showPreplaceText() {
     preplaceTextGroup.style.display = "flex";
@@ -322,10 +322,10 @@ var lens = (function() {
     drawBgImg: drawBgImg,
     drawBgImgAfter: drawBgImgAfter,
     animPrePlace: animPrePlace,
-    animPostPlaceNoLoop: animPostPlaceNoLoop,
-    animPostPlace: animPostPlace,
+    // animPostPlaceNoLoop: animPostPlaceNoLoop,
+    // animPostPlace: animPostPlace,
     cancelPreplaceAnim: cancelPreplaceAnim,
-    cancelPostplaceAnim: cancelPostplaceAnim,
+    // cancelPostplaceAnim: cancelPostplaceAnim,
     handleBackgroundChange: handleBackgroundChange,
     showPreplaceText: showPreplaceText,
     hidePreplaceText: hidePreplaceText,
