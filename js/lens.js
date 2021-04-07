@@ -286,30 +286,23 @@ var lens = (function() {
 
   function showPostplaceMask() {
     postplaceCircleMask.style.display = "flex";
-
-
-    postplaceLeftOvalMask.style.display = "flex";
-    postplaceRightOvalMask.style.display = "flex";
+    // postplaceLeftOvalMask.style.display = "flex";
+    // postplaceRightOvalMask.style.display = "flex";
   }
 
   function hidePostplaceMask() {
     postplaceCircleMask.style.display = "none";
-
-
-    postplaceLeftOvalMask.style.display = "none";
-    postplaceRightOvalMask.style.display = "none";
+    // postplaceLeftOvalMask.style.display = "none";
+    // postplaceRightOvalMask.style.display = "none";
   }
 
   function movePostplaceMask(touchInput) {
     postplaceCircleMask.style.left = (touchInput.center.x - desiredRadius) + "px";
     postplaceCircleMask.style.top = (touchInput.center.y - desiredRadius) + "px";
-
-
-    
-    postplaceLeftOvalMask.style.left = (touchInput.center.x - desiredRadius) - 20 + "px";
-    postplaceLeftOvalMask.style.top = touchInput.center.y - 80 + "px";
-    postplaceRightOvalMask.style.left = (touchInput.center.x) +20 + "px";
-    postplaceRightOvalMask.style.top = touchInput.center.y - 80 + "px";
+    // postplaceLeftOvalMask.style.left = (touchInput.center.x - desiredRadius) - 20 + "px";
+    // postplaceLeftOvalMask.style.top = touchInput.center.y - 80 + "px";
+    // postplaceRightOvalMask.style.left = (touchInput.center.x) +20 + "px";
+    // postplaceRightOvalMask.style.top = touchInput.center.y - 80 + "px";
   }
 
   return {
