@@ -1,19 +1,8 @@
-/**
-* Unifies event handling across browsers
-*
-* - Allows registering and unregistering of event handlers
-* - Injects event object and involved DOM element to listener
-*
-* @author Mark Rolich <mark.rolich@gmail.com>
-*/
+
 var Event = function () {
     "use strict";
-    console.log('event');
     this.attach = function (evtName, element, listener, capture) {
-    console.log("🚀 ~ file: Event.js ~ line 13 ~ Event ~ capture", capture)
-    console.log("🚀 ~ file: Event.js ~ line 13 ~ Event ~ listener", listener)
-    console.log("🚀 ~ file: Event.js ~ line 13 ~ Event ~ element", element)
-    console.log("🚀 ~ file: Event.js ~ line 13 ~ Event ~ evtName", evtName)
+
         var evt         = '',
             useCapture  = (capture === undefined) ? true : capture,
             handler     = null;
