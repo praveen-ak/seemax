@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<title>Magnifier.js demo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="demo.css">
+<link rel="stylesheet" type="text/css" href="../magnifier.css">
+<link rel="stylesheet" type="text/css" href="gallery.css">
+</head>
+<body>
+<div class="wrapper w-100">
+    <div class="gallery w-100">
+        <div class="slider">
+            <ul id="gallery"></ul>
+        </div>
+        <div class="magnifier-preview" id="gallery-preview">
+            <div class="title" id="gallery-preview-title">&nbsp;</div>
+        </div>
+        <div class="btn-wrapper">
+            <button class="prev" id="gallery-prev">&lt;</button>
+            <button class="next" id="gallery-next">&gt;</button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="Event.js"></script>
+<script type="text/javascript" src="../Magnifier.js"></script>
+<script type="text/javascript" src="Gallery.js"></script>
+<script type="text/javascript" src="http://hammerjs.github.io/dist/hammer.min.js"></script>
+<script type="text/javascript">
+
+var evt = new Event(),
+    m = new Magnifier(evt, {
+        largeWrapper: document.getElementById('gallery-preview')
+    }),
+    imageData = [
+        {
+            title: 'Downy Woodpecker',
+            thumb: 'http://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/112_Downy_Woodpecker.jpg/250px-112_Downy_Woodpecker.jpg',
+            large: 'http://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/112_Downy_Woodpecker.jpg/1000px-112_Downy_Woodpecker.jpg',
+        }
+    ],
+    gallery = new Gallery(evt, m, {
+        gallery: document.getElementById('gallery'),
+        images: imageData,
+        prev: document.getElementById('gallery-prev'),
+        next: document.getElementById('gallery-next'),
+        previewText: document.getElementById('gallery-preview-title')
+    });
+
+// m.attach({
+//     thumb: '#thumb',
+//     zoomable: false
+// });
+
+// m.attach({
+//     thumb: '#thumb-inside',
+//     large: 'http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Starry_Night_Over_the_Rhone.jpg/1200px-Starry_Night_Over_the_Rhone.jpg',
+//     zoom: 3
+// });
+
+// m.attach({
+//     thumb: '#thumb1',
+//     large: 'http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Starry_Night_Over_the_Rhone.jpg/1200px-Starry_Night_Over_the_Rhone.jpg',
+//     largeWrapper: 'preview1',
+//     zoom: 3,
+//     zoomable: false
+// });
+
+m.attach({
+    thumb: '#thumb2',
+    large: 'http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Starry_Night_Over_the_Rhone.jpg/1600px-Starry_Night_Over_the_Rhone.jpg',
+    largeWrapper: 'preview2',
+    zoom: 2,
+    zoomable: true,
+    onthumbenter: function (data) {
+        document.getElementById('enter').innerHTML = 'Mouse enter';
+        document.getElementById('leave').innerHTML = '';
+        document.getElementById('zoom').innerHTML = '';
+    },
+    onthumbmove: function (data) {
+        document.getElementById('move').innerHTML = 'Mouse move';
+    },
+    onthumbleave: function (data) {
+        document.getElementById('enter').innerHTML = '';
+        document.getElementById('move').innerHTML = '';
+        document.getElementById('zoom').innerHTML = '';
+        document.getElementById('leave').innerHTML = 'Mouse leave';
+    },
+    ontouchstart: function (data) {
+        document.getElementById('enter').innerHTML = 'Mouse enter';
+        document.getElementById('leave').innerHTML = '';
+        document.getElementById('zoom').innerHTML = '';
+    },
+    ontouchmove: function (data) {
+        document.getElementById('move').innerHTML = 'Mouse move';
+    },
+    onzoom: function (data) {
+        document.getElementById('zoom').innerHTML = 'Zoom: ' + data.zoom;
+    }
+});
+</script>
+
+</body>
+</html>
