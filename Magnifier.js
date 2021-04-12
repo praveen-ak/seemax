@@ -272,7 +272,6 @@ var Magnifier = function (evt, options) {
         onThumbEnter = function () {
             curData = data[curIdx];
             curLens = $('#' + curIdx + '-lens');
-
             if (curData.status === 2) {
                 curLens.className = 'magnifier-lens';
 
@@ -292,6 +291,17 @@ var Magnifier = function (evt, options) {
 
                 curLarge = $('#' + curIdx + '-large');
                 curLarge.className = 'magnifier-large';
+                curLens.style.left = pos.l + 'px';
+                curLens.style.top = pos.t + 'px';
+                curLens.style.width = curData.lensW + 'px';
+                curLens.style.height = curData.lensH + 'px';
+                curLens.style.backgroundPosition = '-' + curData.lensBgX + 'px -' +
+                                                    curData.lensBgY + 'px';
+    
+                curLarge.style.left = '-' + curData.largeL + 'px';
+                curLarge.style.top = '-' + curData.largeT + 'px';
+                curLarge.style.width = curData.largeW + 'px';
+                curLarge.style.height = curData.largeH + 'px';
             } else if (curData.status === 1) {
                 curLens.className = 'magnifier-loader';
             }
